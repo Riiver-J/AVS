@@ -1,24 +1,14 @@
 #include <iostream>
+#include <exception>
 using namespace std;
 
-class Box {
-	int length, width, height;
-
-public:
-	Box(int l,int w,int h) {
-		length = l;
-		width = w;
-		height = h;
-	}
-	friend void prnBox(Box box);
-};
-
-void prnBox(Box box) {
-	cout << "Box(" << box.length << "," << box.width << ","
-		<< box.height << ")" << endl;
-}
-
 int main() {
-	Box b(10, 20, 30);
-	prnBox(b);
+	try {
+		int* p = new int[100];
+		p[300] = 3;
+		delete p;
+	}
+	catch (exception& p) {
+		cout << "표준 예외 발생" << p.what() << endl;
+	}
 }

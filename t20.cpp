@@ -1,24 +1,19 @@
 #include <iostream>
 using namespace std;
 
-class A {
-private:
-	string secret;
-public:
-	friend class B;
-	A(string s = "") { secret = s; }
-};
-
-class B {
-public:
-	B(){}
-	void prn(A obj) {
-		cout << obj.secret << endl;
-	}
-};
-
 int main() {
-	A a("칭구칭구");
-	B b;
-	b.prn(a);
+	int num;
+	cout << "숫자 입력 ";
+	cin >> num;
+
+	try {
+		if (num < 100) throw - 1;
+		else throw 'c';
+	}
+	catch (int e) {
+		cout << e << "잘못입력" << endl;
+	}
+	catch (char e) {
+		cout << e << "잘못입력" << endl;
+	}
 }

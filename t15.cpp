@@ -1,30 +1,23 @@
 #include <iostream>
 using namespace std;
 
-class Box {
-	int width, height, length;
-public:
-	Box(int w=0,int h=0,int l=0) {
-		width = w;
-		height = h;
-		length = l;
-	}
-	void display() {
-		cout << "(" << length << ", " << width << ", " << height << ")" << endl;
-	}
-
-	Box& operator=(const Box& b2) {
-		this->length = b2.length;
-		this->width = b2.width;
-		this->height = b2.height;
-
-		return*this;
-	}
-};
-
 int main() {
-	Box b1(10, 20, 30), b2;
-	b1.display();
-	b2 = b1;
-	b2.display();
+	int pizza_slices = 0;
+	int person = -1;
+	int slice_per_person = 0;
+
+	cout << "피자조각을 입력하시오";
+	cin >> pizza_slices;
+	cout << "사람수를 입력하시오";
+	cin >> person;
+
+	try {
+		if (person == 0) throw person;
+		slice_per_person = pizza_slices / person;
+		cout << "한사람당 피자는" << slice_per_person << endl;
+	}
+	catch (int e) {
+		cout << "사람은 " << e << "명 입니다." << endl;
+
+	}
 }
